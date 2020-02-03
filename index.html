@@ -7,25 +7,46 @@
 	</head>
 	<body>
 		<div id="app" >
-			<div id="example-1">
-           <button v-on:click="counter += 1">数量 : {{ counter }}</button><br />
-           <p>The button above has been clicked {{ counter }} times.</p> 
-           </div>
+		<input v-model="message" placeholder="edit me">
+         <p>Message is: {{ message }}</p>
+		 <span>Multiline message is:</span>
+<p style="white-space: pre-line;">{{ message2 }}</p>
+<br>
+<textarea v-model="message" placeholder="add multiple lines"></textarea>
 		</div>
-		
+		<div id='example-3'>
+  <input type="checkbox" id="jack" value="Jack" v-model="checkedNames">
+  <label for="jack">Jack</label>
+  <input type="checkbox" id="john" value="John" v-model="checkedNames">
+  <label for="john">John</label>
+  <input type="checkbox" id="mike" value="Mike" v-model="checkedNames">
+  <label for="mike">Mike</label>
+  <br>
+  <span>Checked names: {{ checkedNames }}</span>
+</div>
 		
 		<script type="text/javascript">  
-		var  data = { a : 1 };
+		
 		var vm= new Vue({
 			el : '#app',
-			data :{
+			data: {
 				
-				counter:0,
-				name : "vue"
-        	}
+				message: "",
+				message2: ""
+			}
+		
 		});
+		new Vue({
+  el: '#example-3',
+  data: {
+    checkedNames: []
+  }
+})
 	
 		</script>
-		
+		<style type="text/css">
+			
+			
+		</style>
 	</body>
 </html>
