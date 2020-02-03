@@ -14,7 +14,31 @@
 		var  data = { a : 1 };
 		var app= new Vue({
 			el : '#app',
-			data : data
+			data :{
+				msg : "jjjjj",
+			},
+			  //页面创建之前调用 
+                beforeCreate:function (){  
+                    console.log('beforeCreate');  
+                },  
+				//已经创建之后
+                created:function () {  
+                    console.log('created');  
+                },  
+				//在挂载开始之前被调用 
+                beforeMount:function () {  
+                    console.log('beforeMount');  
+                },  
+				//在挂载开始之后被调用 
+                beforeUpdate:function () {  
+                    console.log(this.message);  
+                    console.log('beforeUpdate');  
+                },  
+				//所以数据被更新了
+                updated:function () {  
+                    console.log('updated');  
+                }  
+				
 		});
 		
 		vm.$watch('a', function(newVal,oldVal){
