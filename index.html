@@ -6,12 +6,11 @@
 		<script src="vue.js" type="text/javascript" charset="UTF-8"></script>
 	</head>
 	<body>
-		<div id="app" v-once>
-		<ul id="example-1">
-  <li v-for="item in items">
-    {{ item.message }}
-  </li>
-</ul>
+		<div id="app" >
+			<div id="example-1">
+           <button v-on:click="counter += 1">数量 : {{ counter }}</button><br />
+           <p>The button above has been clicked {{ counter }} times.</p> 
+           </div>
 		</div>
 		
 		
@@ -20,11 +19,10 @@
 		var vm= new Vue({
 			el : '#app',
 			data :{
-				  items: [
-      { message: 'Foo' },
-      { message: 'Bar' }
-    ],
-	}
+				
+				counter:0,
+				name : "vue"
+        	}
 		});
 	
 		</script>
