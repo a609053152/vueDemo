@@ -7,11 +7,11 @@
 	</head>
 	<body>
 		<div id="app" v-once>
-			<div 
-			 v-bind:class="{ active: isActive }"
-			style="width: 200px; height: 200px; text-align: center;line-height: 200px;">
-				hi vue
-			</div>
+		<ul id="example-1">
+  <li v-for="item in items">
+    {{ item.message }}
+  </li>
+</ul>
 		</div>
 		
 		
@@ -20,13 +20,14 @@
 		var vm= new Vue({
 			el : '#app',
 			data :{
-				isActive : true,
-				}
+				  items: [
+      { message: 'Foo' },
+      { message: 'Bar' }
+    ],
+	}
 		});
 	
 		</script>
-		<style>
-			.active{background: #FF0000;}
-		</style>
+		
 	</body>
 </html>
