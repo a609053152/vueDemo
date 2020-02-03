@@ -6,46 +6,36 @@
 		<script src="vue.js" type="text/javascript" charset="UTF-8"></script>
 	</head>
 	<body>
-		<div id="app">
-			{{a}}
+		<div id="app" v-once>
+			{{msg}}
+			<p>Using mustaches: {{ rawHtml }}</p>
+			<p v-html="rawHtml"></p><div v-bind:class="color">text...</div>
+			<p>{{ number + 1}}</p>
+			<p>{{ 1==1 ? 'YES' : 'NO'}}</p>
+			<p>{{ message.split('').reverse().join('') }}</p>
 		</div>
+		
 		
 		<script type="text/javascript">
 		var  data = { a : 1 };
-		var app= new Vue({
+		var vm= new Vue({
 			el : '#app',
 			data :{
-				msg : "jjjjj",
-			},
-			  //页面创建之前调用 
-                beforeCreate:function (){  
-                    console.log('beforeCreate');  
-                },  
-				//已经创建之后
-                created:function () {  
-                    console.log('created');  
-                },  
-				//在挂载开始之前被调用 
-                beforeMount:function () {  
-                    console.log('beforeMount');  
-                },  
-				//在挂载开始之后被调用 
-                beforeUpdate:function () {  
-                    console.log(this.message);  
-                    console.log('beforeUpdate');  
-                },  
-				//所以数据被更新了
-                updated:function () {  
-                    console.log('updated');  
-                }  
+				msg : "hi vue",
+				rawHtml: '<span style="color:red">this is should be red</span>',
+				color: 'blue',
+				number :10,
+				message: 'vue'
+			}
+			 
 				
 		});
-		
-		vm.$watch('a', function(newVal,oldVal){
-			
-			console.log(newVal,oldVal);
-		})
-		vm.$data.a = "text"
+	
+		vm.msg = "hi..."
 		</script>
+		<style type="text/css">
+			.red{color: red;}
+			.blue{color: blue;font-size: 100px;}
+		</style>
 	</body>
 </html>
