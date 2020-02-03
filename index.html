@@ -7,12 +7,10 @@
 	</head>
 	<body>
 		<div id="app" v-once>
-			<p v-if="seen">现在你看到我了</p>
-			<a v-bind:href="url">连接吗</a>
-			<div @click="clicl1">
-				<div @click.stop="clicl2">
-					clicl me
-				</div>
+			<div 
+			 v-bind:class="{ active: isActive }"
+			style="width: 200px; height: 200px; text-align: center;line-height: 200px;">
+				hi vue
 			</div>
 		</div>
 		
@@ -22,21 +20,13 @@
 		var vm= new Vue({
 			el : '#app',
 			data :{
-			 seen : true,
-			 url : "https://cn.vuejs.org/v2/guide/syntax.html#%E6%8C%87%E4%BB%A4"
-			},
-			methods:{
-				clicl1 : function(){
-					console.log('111111111');
-				},
-				clicl2 : function(){
-					console.log('2222222');
-			}
-			 }
-				
+				isActive : true,
+				}
 		});
 	
 		</script>
-		
+		<style>
+			.active{background: #FF0000;}
+		</style>
 	</body>
 </html>
